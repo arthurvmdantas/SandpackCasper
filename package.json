@@ -11,6 +11,7 @@
         "desktop": "assets/screenshot-desktop.jpg",
         "mobile": "assets/screenshot-mobile.jpg"
     },
+    "source": "react/ghostpack.js",
     "scripts": {
         "dev": "gulp",
         "zip": "gulp zip",
@@ -19,7 +20,8 @@
         "pretest": "gulp build",
         "preship": "yarn test",
         "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
-        "postship": "git fetch && gulp release"
+        "postship": "git fetch && gulp release",
+        "parcelBuild": "parcel build"
     },
     "author": {
         "name": "Ghost Foundation",
@@ -57,9 +59,11 @@
         "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
         "inquirer": "8.2.4",
+        "parcel": "^2.8.2",
         "postcss": "8.2.13",
         "postcss-color-mod-function": "3.0.3",
         "postcss-easy-import": "4.0.0",
+        "process": "^0.11.10",
         "pump": "3.0.0"
     },
     "browserslist": [
@@ -175,5 +179,10 @@
         "extends": [
             "@tryghost:theme"
         ]
+    },
+    "dependencies": {
+        "@codesandbox/sandpack-react": "^1.18.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     }
 }
